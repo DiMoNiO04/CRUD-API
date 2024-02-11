@@ -1,1 +1,3 @@
-const a: number = 5;
+import { start } from './app/app';
+
+start();
