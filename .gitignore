@@ -1,0 +1,7 @@
+_cacache
+_logs
+_npx
+node_modules
+_update-notifier-last-checked
+.env
+dist
