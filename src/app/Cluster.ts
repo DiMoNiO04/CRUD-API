@@ -1,6 +1,11 @@
+import http from 'http';
 import cluster from 'cluster';
 import os from 'os';
 import { getPort } from '../utils/functions/getPort';
+import { Routes } from './Router';
+
+const router = new Routes();
+export const app = http.createServer(router.handleRequest);
 
 export class Cluster {
   private pid: number = process.pid;
@@ -40,6 +45,10 @@ export class Cluster {
   public actionWithCluster(): void {
     if (cluster.isPrimary) {
       console.log(`Primary process is started! CPU cores: ${this.pid}`);
+
+      app.listen(this.PORT, () => {
+        console.log('12312312312');
+      });
 
       this.forkClusters();
       this.exitClusters();
