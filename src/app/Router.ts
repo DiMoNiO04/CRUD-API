@@ -1,6 +1,9 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { METHOD } from '../utils/enums/methods';
 import { STATUS_CODE } from '../utils/enums/status';
+import { UsersRepository } from '../users/repository';
+
+export const userRepository = new UsersRepository();
 
 export class Routes {
   private pid: number = process.pid;
